@@ -1,0 +1,13 @@
+version: "2.2"
+services:
+  mqtt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mqtt-server
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./config:/mosquitto/config/
+      - ./app:/app/
+    network_mode: "host"
